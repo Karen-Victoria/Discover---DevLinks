@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+/*Versão escura original*/
+:root {
+  --text-color1: rgb(255, 170, 244);
+  --text-color2: rgba(204, 96, 214, 0.1); 
+  --text-color3: rgba(236, 121, 184, 0.5);
+  --text-color4: rgba(211, 57, 172, 0.5);
+  --text-color5: rgba(204, 96, 214, 0.05);
+  --text-color6: rgb(253, 126, 236);
+  --text-color7: rgba(78, 37, 75, 0.986);
+  --text-color8: rgba(255, 0, 195, 0.877);
+  --switch-bg-url: url(Assets/assets/moon-stars.svg);
+  --bg-url: url(./Assets/assets/bg-mobile.jpg);
+}
+
+/*Versão clara utilizando a classe no html*/
+.light {
+  --text-color1: rgb(240, 53, 168);
+  --text-color2: rgba(230, 86, 182, 0.1);
+  --text-color3: rgba(236, 59, 142, 0.5);
+  --text-color4: rgba(207, 22, 93, 0.5);
+  --text-color5: rgba(235, 20, 145, 0.205);
+  --text-color6: rgb(226, 92, 170);
+  --text-color7: rgba(235, 20, 145, 0.205);
+  --text-color8: rgba(189, 19, 124, 0.877);
+  --switch-bg-url: url(Assets/assets/sun.svg);
+  --bg-url: url(./Assets/assets/bg-rosa-light2.jpg)
+}
+
+body {
+  /*
+  background-image: url(./Assets/assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  /*para reagrupar todas as propridades(shorthand)
+  background:color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body *{ 
+  font-family: "Inter", sans-serif;
+  color: var(--text-color1);
+}
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/*profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  margin: auto;
+  display:block;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+#switch {
+  /*vai relativizar o "absolute"*/
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: hsl(320, 100%, 84%) var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+/*o "absolute" será relativo ao elemento switch*/
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /*muda os andares*/
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  /*faz o left voltar ao lugar inicial*/
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--text-color2);
+  border: 1px solid var(--text-color3);
+  
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links*/
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+  
+}
+
+ul li a{
+  /*filhinhos da ul, estao recebendo todas as propriedades*/
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 16px 24px;
+  
+  background: var(--text-color2);
+  border: 1px solid var(--text-color3);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 0px 0px 10px 0px var(--text-color4);
+
+  text-decoration: none; /*alterar a linha abaixo da frase*/
+  font-weight: 500;
+
+  transition: background 0.2s; /*serve para controlar a velocidade de uma animação*/
+}
+
+ul li a:hover /*hover serve para alterar a aparencia do botao q o usuario passar o cursor em cima*/ {
+  background: var(--text-color5);
+  border: 1.5px solid var(--text-color8);
+}
+
+/*ícones das redes sociais*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+/*para mudar a cor dos ícones*/
+ion-icon {
+  color: var(--text-color6);
+}
+
+#social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 16px;
+
+transition: background 0.2s;
+border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--text-color7);
+}
+
+/* Rodapé do site*/
+footer{
+ padding: 24px;
+ text-align: center;
+ font-size: 14px;
+}
