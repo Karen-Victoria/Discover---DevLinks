@@ -42,6 +42,8 @@ body {
   /*para reagrupar todas as propridades(shorthand)
   background:color image repeat position/size */
   background: var(--bg-url) no-repeat top center/cover;
+  /*vh: viewport height*/
+  height: 100vh;
 }
 
 body *{ 
@@ -188,4 +190,15 @@ footer{
  padding: 24px;
  text-align: center;
  font-size: 14px;
+}
+
+/*media queries*/
+@media (min-width: 700px) {
+  :root {
+   --bg-url: url(./Assets/assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./Assets/assets/bg-rosa-light2.jpg);
+  }
 }
