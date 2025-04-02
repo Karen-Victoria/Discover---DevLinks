@@ -93,6 +93,7 @@ body *{
 /*o "absolute" será relativo ao elemento switch*/
   position: absolute;
   top: 50%;
+  /*o "left:0" já é o final do slide-back, sem necessidade de por o "forwards"*/
   left: 0;
   /*muda os andares*/
   z-index: 1;
@@ -102,7 +103,7 @@ body *{
 }
 
 .light #switch button {
-  /*vai aplicar a animação quando clicar no botão durante o light mode / forwards: vai fazer a animação do slide-in e manter as propriedades quando chegar no final (0.2s), o botão não voltará ao inicio (left: 0) */
+  /*vai aplicar a animação quando clicar no botão durante o light mode / forwards: vai manter as propriedades finais, o botão não voltará ao inicio (left: 0)*/
   animation: slide-in 0.2s forwards;
 }
 
